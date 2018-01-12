@@ -4,13 +4,13 @@ import {Navbar} from 'react-bootstrap';
 class Header extends Component {
   render() {
     return (
-        <Navbar>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    GoogleBooks
-                </Navbar.Brand>
-            </Navbar.Header>
-        </Navbar>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            GoogleBooks
+          </Navbar.Brand>
+        </Navbar.Header>
+      </Navbar>
     );
   }
 }

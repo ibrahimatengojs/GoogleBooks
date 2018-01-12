@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
-import './App.css';
+import {Grid, Col, Row} from 'react-bootstrap';
 import axios from 'axios';
 import Header from './components/Header';
 import Books from './components/Books';
+import './App.css';
 
 class App extends Component {
   //initialized state
-  constructor() {
+  constructor(){
     super();
     this.state = {
-      books: [],
-      searchinput: 'Programming Books'
+      books:[],
+      text:'Self improvement'
     }
   }
 
   //fetching data from google api
-  componentWillMount() {
+  componentWillMount(){
     this.getBooks();
   }
 
-  getBooks() {
+  getBooks(){
     axios.request({
-      method: 'get',
-      url: 'https://www.googleapis.com/books/v1/volumes?q='+this.state.searchinput
+      method:'get',
+      url:'https://www.googleapis.com/books/v1/volumes?q='+this.state.text
     }).then((response) => {
       this.setState({books: response.data.items}, () => {
-        console.log('this.state', this.state);
+        console.log(this.state);
       });
     }).catch((error) => {
       console.log(error);
-    })
+    });
   }
 
   render() {
@@ -39,7 +39,7 @@ class App extends Component {
         <Header />
         <Grid>
           <Row>
-            <Col xs={12} md={8} lg={8}>
+            <Col xs={12} md={12} lg={12}>
               <Books books={this.state.books} />
             </Col>
           </Row>
